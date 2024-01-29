@@ -1,0 +1,190 @@
+﻿/* Variables */
+:root {
+    --color1: #fefefe;
+    --color2: #11101b;
+}
+
+/* General */
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+body {
+    background-color: var(--color1);
+}
+
+/* Header / NavBar*/
+
+header {
+    width: 100%;
+    height: 80px;
+    background: var(--color2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color1);
+}
+
+.hamburger {
+    display: none;
+}
+
+.navBar ul {
+    display: flex;
+}
+
+    .navBar ul li a {
+        display: block;
+        color: var(--color1);
+        font-size: 20px;
+        padding: 35px 25px;
+        transition: 0.2s;
+        margin: 0;
+        text-decoration: none;
+    }
+
+        .navBar ul li a:hover {
+            color: var(--color2);
+            background: var(--color1);
+        }
+
+        .navBar ul li a.active {
+            color: var(--color2);
+            background-color: var(--color1);
+        }
+
+.btnContainer {
+    display: flex;
+}
+
+.btnLogin {
+    display: block;
+    color: var(--color1);
+    font-size: 20px;
+    padding: 25px 25px;
+    transition: 0.2s;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+    .btnLogin:hover {
+        background-color: green;
+    }
+
+
+.btnRegistrarse {
+    display: block;
+    color: var(--color1);
+    font-size: 20px;
+    padding: 25px 25px;
+    transition: 0.2s;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+    .btnRegistrarse:hover {
+        background-color: dodgerblue;
+    }
+
+@media only screen and (max-width: 1320px) {
+    header {
+        padding: 0 50px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    header {
+        padding: 0 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--color1);
+        margin: 6px 0;
+    }
+
+    .navBar {
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: var(--color2);
+        transition: 0.2s;
+        overflow: hidden;
+    }
+
+        .navBar.active {
+            height: 450px;
+        }
+
+        .navBar ul {
+            display: block;
+            width: fit-content;
+            margin: 80px auto 0 auto;
+            text-align: center;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+            .navBar ul li a {
+                margin-bottom: 12px;
+                padding: 12px 25px;
+            }
+
+        .navBar.active ul {
+            opacity: 1;
+        }
+
+    .btnContainer {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .btnLogin {
+        background-color: green;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .btnRegistrarse {
+        background-color: dodgerblue;
+        padding: 12px;
+        text-align: center;
+    }
+}
+
+/* Login */
+
+.formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    margin: 0;
+}
+.login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.boxShadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
