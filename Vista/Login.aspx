@@ -6,19 +6,21 @@
 
 
     <div class="formContainer">
-        <div class="login-container">
+        <div class="loginContainer">
             <h2 class="text-center mb-4">Iniciar Sesión</h2>
             <div>
                 <div class="mb-3">
                     <asp:Label runat="server" Text="Nombre de usuario:" CssClass="form-label" />
                     <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control" placeholder="Ingrese su nombre de usuario" />
-
+                    <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
                 <div class="mb-3">
                     <asp:Label runat="server" Text="Contraseña:" CssClass="form-label" />
                     <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control" placeholder="Ingresá tu contraseña" TextMode="Password" />
+                    <small id="passwordHelp" class="form-text text-muted"></small>
                 </div>
                 <asp:Button Text="Iniciar Sesión" runat="server" CssClass="btn btn-primary w-100" />
+               
             </div>
         </div>
 

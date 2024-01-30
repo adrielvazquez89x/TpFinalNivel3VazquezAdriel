@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="formContainer">
-        <div class="login-container">
+        <div class="loginContainer">
             <h2 class="text-center mb-1">Registrate!</h2>
             <p class="text-center mb-4">(por ahora es gratis)</p>
             <div>
