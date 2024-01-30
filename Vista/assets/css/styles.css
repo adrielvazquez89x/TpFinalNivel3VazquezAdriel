@@ -2,6 +2,7 @@
 :root {
     --color1: #fefefe;
     --color2: #11101b;
+    --color3: #b6ff00;
 }
 
 /* General */
@@ -230,4 +231,62 @@ header {
 .containerFilters {
     display: flex;
     flex-direction: column;
+}
+
+.containerItems {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+    .containerItems img {
+        max-width: 100px;
+        height: auto;
+    }
+
+/* Tarjetita*/
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    margin: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    .card img {
+        flex: 1;
+        width: 100%;
+        object-fit: cover;
+    }
+
+.cardContent {
+    padding: 15px;
+}
+
+.cardTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.carDescription {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.btnCard {
+    background-color: var(--color3);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
 }

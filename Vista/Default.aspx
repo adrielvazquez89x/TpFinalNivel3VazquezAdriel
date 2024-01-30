@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Olis Mundis</h1>
 
     <div class="container d-flex">
         <aside>
@@ -55,15 +54,22 @@
         </aside>
         <!-- Seccion para mostrar articulos -->
         <section>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="containerItems">
+
+                <%foreach (dominio.Articulo articulo in ListaArticulos)
+                    {%>
+                <div class="card">
+                    <img src="<%:articulo.UrlImg %>" onerror="this.src='https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg'" class="card-img-top" alt="Imagen del artículo">
+                    <div class="cardContent">
+                        <h5 class="cardTitle"><%:articulo.Nombre %></h5>
+                        <p class="cardDescription"><%:articulo.Descripcion %></p>
+                        <a href="#" class="btn btnCard">Leer más</a>
+                    </div>
                 </div>
+                <%}%>
             </div>
         </section>
+
     </div>
 
 
