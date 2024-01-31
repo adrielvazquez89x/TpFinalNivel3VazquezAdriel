@@ -2,7 +2,7 @@
 :root {
     --color1: #fefefe;
     --color2: #11101b;
-    --color3: #b6ff00;
+    --color3: #ff0000;
 }
 
 /* General */
@@ -229,6 +229,7 @@ header {
 /* Default */
 
 .containerFilters {
+    width: 250px;
     display: flex;
     flex-direction: column;
 }
@@ -258,7 +259,7 @@ header {
 }
 
     .card:hover {
-        transform: scale(1.02);
+        transform: scale(1.03);
     }
 
     .card img {
@@ -277,7 +278,7 @@ header {
     margin-bottom: 10px;
 }
 
-.carDescription {
+.cardDescription {
     color: #555;
     margin-bottom: 15px;
 }
