@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="ArticulosLista.aspx" />
     <Content Include="assets\css\styles.css" />
+    <Content Include="assets\js\validacion.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -75,6 +76,7 @@
     <Content Include="Favoritos.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="FormularioArticulos.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="Registro.aspx" />
@@ -123,6 +125,9 @@
     <Compile Include="FormularioArticulos.aspx.designer.cs">
       <DependentUpon>FormularioArticulos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,6 +157,7 @@
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

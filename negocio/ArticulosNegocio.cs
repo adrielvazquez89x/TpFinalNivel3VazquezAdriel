@@ -1,6 +1,7 @@
 ﻿using dominio;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -11,14 +12,21 @@ namespace negocio
     public class ArticulosNegocio
     {
         //Aca va el CRUD de los articulos
-        public List<Articulo> listarArticulos()
+        public List<Articulo> listarArticulos(string id = "")
         {
             List<Articulo> listaArticulos = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setConsulta("Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%'");
+                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%'";
+
+                if (id != "")
+                {
+                    consulta += " and A.Id =" + id;
+                }
+
+                datos.setConsulta(consulta);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -45,7 +53,7 @@ namespace negocio
 
                 throw;
             }
-        
+
 
             return listaArticulos;
         }
@@ -69,7 +77,7 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
-            
+
         }
 
         public void modificarArticulo(Articulo articulo)
@@ -95,7 +103,7 @@ namespace negocio
 
         public void eliminarArticulo(Articulo articulo)
         {
-                AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.setConsulta($"update ARTICULOS set Codigo = '{articulo.Codigo} (BAJA)' where Id = {articulo.Id}");
@@ -115,7 +123,7 @@ namespace negocio
         //Filtro
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
-        { 
+        {
             List<Articulo> listaArticulos = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
@@ -123,7 +131,7 @@ namespace negocio
             {
                 string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%' AND ";
 
-                if(campo == "Precio")
+                if (campo == "Precio")
                 {
                     switch (criterio)
                     {
@@ -138,7 +146,7 @@ namespace negocio
                             break;
                     }
 
-                 }
+                }
                 else if (campo == "Nombre")
                 {
                     switch (criterio)
@@ -156,7 +164,7 @@ namespace negocio
                 }
                 else
                 {
-                    switch(criterio)
+                    switch (criterio)
                     {
                         case "Comienza con ":
                             consulta += $"A.Descripcion like '{filtro}%'";
@@ -170,9 +178,9 @@ namespace negocio
                     }
                 }
 
-                datos.setConsulta(consulta );
+                datos.setConsulta(consulta);
                 datos.ejecutarLectura();
-                while(datos.Lector.Read())
+                while (datos.Lector.Read())
                 {
                     Articulo auxiliar = new Articulo();
                     auxiliar.Id = (int)datos.Lector["Id"];

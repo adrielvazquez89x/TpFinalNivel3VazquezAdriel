@@ -12,7 +12,7 @@
                     <asp:Label Text="Buscar" runat="server" CssClass="form-label" />
                     <div class="d-flex">
                         <asp:TextBox runat="server" ID="txtBuscar" CssClass="form-control" />
-                        <asp:Button Text="Lupa" runat="server" CssClass="mx-1" />
+                        <asp:Button Text="Lupa" runat="server" ID="btnBuscar" OnClick="btnBuscar_Click" CssClass="mx-1" />
 
                     </div>
                 </div>
@@ -55,6 +55,19 @@
             <asp:Button Text="Limpiar Filtros" runat="server" ID="btnLimpiarFiltros" OnClick="btnLimpiarFiltros_Click" />
 
             <asp:Label Text="consola" ID="consola" runat="server" />
+
+            <%
+                if (FiltrosAplicados)
+                {%>
+            <div class="d-flex flex-column">
+                <p>Filtros Aplicados: </p>
+                <asp:Label Text="" ID="lblCategoria" runat="server" />
+                <asp:Label Text="" ID="lblMarcas" runat="server" />
+                <asp:Label Text="" ID="lblPrecio" runat="server" />
+            </div>
+
+            <%}
+            %>
         </aside>
         <!-- Seccion para mostrar articulos -->
         <section>
@@ -69,7 +82,7 @@
                     <div class="cardContent">
                         <h5 class="cardTitle"><%:articulo.Nombre %></h5>
                         <p class="cardDescription">Precio: $<%:articulo.Precio %></p>
-                        <a href="#" class="btnCard">Leer más</a>
+                        <a href="Detalle.aspx?id=<%:articulo.Id %>" class="btnCard">Leer más</a>
                     </div>
                 </div>
                 <%}

@@ -3,19 +3,31 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
-        <div class="d-flex">
-            <div>
-                <p>Aca va la foto</p>
 
+    <div class="container">
+        <div class="containerArticle">
+
+            <div class="articleDetails">
+                <div class="articleImage">
+                    <img src="<%:articulo.UrlImg %>" onerror="this.src='https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg'" alt="Imagen del Artículo">
+                </div>
+                <div class="articleContent">
+                    <p class="articleName"><%:articulo.Fabricante.Nombre %></p>
+                    <h3><%: articulo.Nombre %></h3>
+                    <p class="articleDescription"><%:articulo.Descripcion %></p>
+                    <p class="articlePrice">$<%: articulo.Precio %></p>
+                    <div class="btnFav">
+                        <i class="fa fa-heart-o"></i>
+                    </div>
+                    <div class="btnFavChecked">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <asp:Label Text="" ID="Label1" runat="server" />
+                </div>
             </div>
-            <div>
-                <p>Marca Producto</p>
-                <h3>Nombre Producto</h3>
-                <p>Descripcion Producto</p>
-                <p>Precio</p>
-            </div>
+
 
         </div>
     </div>
+    <asp:Label Text="" ID="lblPrueba" runat="server" />
 </asp:Content>

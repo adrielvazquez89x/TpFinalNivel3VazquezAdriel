@@ -6,5 +6,5 @@
 
     <h1>Hubo un problema
     </h1>
-    <asp:Label ID="lblMensaje" Text="text" runat="server" />
+    <asp:Label ID="lblMensaje" Text="" runat="server" />
 </asp:Content>

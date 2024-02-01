@@ -12,6 +12,7 @@ namespace Vista
     public partial class Default : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulos { get; set; }
+        public bool FiltrosAplicados { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,6 +20,7 @@ namespace Vista
             ArticulosNegocio negocio = new ArticulosNegocio();
             ListaArticulos = negocio.listarArticulos();
             Session.Add("listaArticulos", ListaArticulos);
+            FiltrosAplicados = false;
 
             if (!IsPostBack)
             {
@@ -71,6 +73,7 @@ namespace Vista
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             ListaArticulos = filtrar();
+            FiltrosAplicados = true;
 
         }
 
@@ -79,8 +82,8 @@ namespace Vista
             ListaArticulos = (List<Articulo>)Session["listaArticulos"];
             txtMaxPrecio.Text = "";
             txtMinPrecio.Text = "";
+            FiltrosAplicados = false;
         }
-
 
         // Métodos y funciones.
 
@@ -193,8 +196,33 @@ namespace Vista
 
             listaFiltrada = filtrarMarcas(marca, filtrarCategorias(categoria, filtrarPrecios(listaFiltrada)));
 
+            aplicarFiltros(marca, categoria);
+
             return listaFiltrada;
         }
 
+        private void aplicarFiltros(string marca, string categoria)
+        {
+
+            lblCategoria.Text = "";
+            lblCategoria.Text += "Categoria: " + categoria;
+            lblMarcas.Text = "";
+            lblMarcas.Text += "Marca: " + marca;
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> lista = (List<Articulo>)Session["listaArticulos"];
+
+
+            List<Articulo> listaBusqueda =
+                lista.FindAll(x => x.Nombre.ToLower().Contains(txtBuscar.Text.ToLower()) ||
+            (x.Fabricante.Nombre.ToLower().Contains(txtBuscar.Text.ToLower())) ||
+            (x.Tipo.Descripcion.ToLower().Contains(txtBuscar.Text.ToLower())));
+
+
+
+            ListaArticulos = listaBusqueda;
+        }
     }
 }
