@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
+using negocio;
 
 namespace Vista
 {
@@ -11,7 +13,8 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Usuario usuario = (Usuario)Session["usuario"];
+            lblPrueba.Text = usuario.Email;
         }
     }
 }

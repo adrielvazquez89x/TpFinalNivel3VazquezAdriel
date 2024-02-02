@@ -28,10 +28,16 @@
 
                 </ul>
             </nav>
+
+            <%
+                
+            %>
+
             <div class="btnContainer">
                 <a href="Login.aspx" id="btnLogin" class="btnLogin">Login</a>
                 <a href="Registro.aspx" id="btnRegistrarse" class="btnRegistrarse">Registrarse</a>
             </div>
+
         </header>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

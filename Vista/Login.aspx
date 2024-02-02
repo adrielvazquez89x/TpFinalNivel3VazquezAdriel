@@ -19,7 +19,7 @@
                     <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control" placeholder="Ingresá tu contraseña" TextMode="Password" />
                     <small id="passwordHelp" class="form-text text-muted"></small>
                 </div>
-                <asp:Button Text="Iniciar Sesión" runat="server" CssClass="btn btn-primary w-100" />
+                <asp:Button Text="Iniciar Sesión" ID="btnLogin" OnClick="btnLogin_Click" runat="server" CssClass="btn btn-primary w-100" />
                
             </div>
         </div>

@@ -6,6 +6,7 @@
 
     <div class="generalContainer">
         <h2 class="text-center">Perfil de Usuario</h2>
+        <asp:Label Text="text" ID="lblPrueba" runat="server" />
         <div class="profileContainer boxShadow">
             <!-- Datos del usuario -->
             <div class="formProfileContainer">

@@ -53,5 +53,40 @@ namespace negocio
             }
 
         }
+
+        public bool Login(Usuario usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta($"SELECT Id, email, pass, nombre, apellido, urlImagenPerfil, admin FROM USERS where email = '{usuario.Email}' AND pass = '{usuario.Password}'");
+                datos.ejecutarLectura();
+ 
+                if (datos.Lector.Read())
+                {
+                    usuario.Id = (int)datos.Lector["Id"];
+                    usuario.Admin = (bool)datos.Lector["admin"];
+                    if (!(datos.Lector["nombre"] is DBNull))
+                        usuario.Nombre = (string)datos.Lector["nombre"];
+                    if (!(datos.Lector["apellido"] is DBNull))
+                        usuario.Apellido = (string)datos.Lector["apellido"];
+                    if (!(datos.Lector["urlImagenPerfil"] is DBNull))
+                        usuario.UrlImagen = (string)datos.Lector["urlImagenPerfil"];
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
     }
 }
