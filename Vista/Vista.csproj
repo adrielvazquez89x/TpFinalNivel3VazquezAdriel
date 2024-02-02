@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="ArticulosLista.aspx" />
     <Content Include="assets\css\styles.css" />
+    <Content Include="assets\images\error.gif" />
     <Content Include="assets\js\validacion.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="Content\font-awesome.css" />
@@ -175,7 +176,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\images\icons\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">

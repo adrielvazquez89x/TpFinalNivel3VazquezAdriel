@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header id ="header">
+        <header id="header">
 
             <div class="logo">Logo</div>
             <div class="hamburger" id="btnMenu">
@@ -28,14 +28,21 @@
 
                 </ul>
             </nav>
-
-            <%
-                
-            %>
-
             <div class="btnContainer">
+                <%
+                    if (!negocio.Seguridad.sesionActiva(Session["usuario"]))
+                    {%>
                 <a href="Login.aspx" id="btnLogin" class="btnLogin">Login</a>
                 <a href="Registro.aspx" id="btnRegistrarse" class="btnRegistrarse">Registrarse</a>
+
+                <%}
+                    else
+                    {%>
+                <asp:Button Text="Salir" ID="btnSalir" CssClass="btnSalir" runat="server" OnClick="btnSalir_Click" />
+                <asp:Image ID="imgAvatar" Style="height: 40px; width: 40px; border-radius: 50%" runat="server" />
+
+                <%}
+                %>
             </div>
 
         </header>

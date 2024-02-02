@@ -34,21 +34,47 @@
             <div class="formImageContainer">
                 <h3 class="text-center">Imagen de perfil</h3>
 
+                <!-- Radio btns-->
                 <div>
                     <label class="form-label">Cargar imágen de perfil</label>
                     <div class="d-flex flex-column">
                         <asp:RadioButton Text="Cargar por URL" ID="rdbUrl" runat="server" GroupName="imagenPerfil" CssClass="mx-2" />
+                        <input type="radio" name="name" value="Cargal por URL" />
                         <asp:RadioButton Text="Cargar imagen local" ID="rdbLocal" runat="server" GroupName="imagenPerfil" CssClass="mx-2" />
 
                     </div>
-                </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Default radio
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Default checked radio
+                        </label>
+                    </div>
 
+                </div>
+                <!-- URL -->
                 <label for="txtUrlImagen" class="form-label">URL:</label>
-                <div>
-                    <asp:TextBox runat="server" ID="txtUrlImagen" placeholder="Ingrese la URL de su imagen de perfil" CssClass="form-control mb-4" />
-                    <input type="file" id="txtImagen" runat="server" class="form-control" />
 
+                <div>
+                    <%
+                        if (rdbUrl.Checked)
+                        {%>
+
+                    <asp:TextBox runat="server" ID="txtUrlImagen" placeholder="Ingrese la URL de su imagen de perfil" CssClass="form-control mb-4" />
+                    <%}
+                        else if (rdbLocal.Checked)
+                        {%>
+                    <input type="file" id="txtImagen" runat="server" class="form-control" />
+                    <%}
+
+                    %>
                 </div>
+
                 <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
                     runat="server" CssClass="img-fluid pb-3 mt-4" Width="50%" />
             </div>

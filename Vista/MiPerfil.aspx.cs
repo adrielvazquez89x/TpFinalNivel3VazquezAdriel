@@ -13,8 +13,29 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario usuario = (Usuario)Session["usuario"];
-            lblPrueba.Text = usuario.Email;
+			try
+			{
+				if (!IsPostBack)
+				{
+					if (Seguridad.sesionActiva(Session["usuario"]))
+					{
+						Usuario usuario = (Usuario)Session["usuario"];
+
+						txtEmail.Text = usuario.Email;
+						txtEmail.ReadOnly = true;
+
+						txtNombre.Text = usuario.Nombre;
+						txtApellido.Text  = usuario.Apellido;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Session.Add("error", ex.ToString());
+				Response.Redirect("Error.aspx", false);
+				
+			}
+
         }
     }
 }

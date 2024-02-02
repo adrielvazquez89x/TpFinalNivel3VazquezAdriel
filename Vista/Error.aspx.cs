@@ -15,7 +15,7 @@ namespace Vista
             {
                 lblMensaje.Text = Session["error"].ToString();
 
-
+                imgError.ImageUrl = "~/assets/images/error.gif";
             }
         }
     }
