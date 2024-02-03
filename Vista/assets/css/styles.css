@@ -220,7 +220,7 @@ header {
     justify-content: center;
     gap: 30px;
     margin-top: 30px;
-    height: 550px;
+    height: 650px;
     padding: 30px;
 }
 
@@ -233,6 +233,7 @@ header {
 .formImageContainer {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 400px;
 }
 

@@ -61,7 +61,7 @@ namespace negocio
             {
                 datos.setConsulta($"SELECT Id, email, pass, nombre, apellido, urlImagenPerfil, admin FROM USERS where email = '{usuario.Email}' AND pass = '{usuario.Password}'");
                 datos.ejecutarLectura();
- 
+
                 if (datos.Lector.Read())
                 {
                     usuario.Id = (int)datos.Lector["Id"];
@@ -87,6 +87,27 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
+        }
+
+        public void actualizarUsuario(Usuario usuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta($"UPDATE USERS SET nombre ='{usuario.Nombre}', apellido = '{usuario.Apellido}', urlImagenPerfil = @imagen where Id = {usuario.Id} ");
+                datos.setParams("@imagen", (object)usuario.UrlImagen ?? DBNull.Value);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }

@@ -4,6 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <asp:ScriptManager runat="server" />
+
     <div class="generalContainer">
         <h2 class="text-center">Perfil de Usuario</h2>
         <asp:Label Text="text" ID="lblPrueba" runat="server" />
@@ -26,60 +28,57 @@
                     <asp:TextBox runat="server" ID="txtApellido" placeholder="Ingrese su apellido" CssClass="form-control" />
                 </div>
                 <div>
-                    <asp:Button runat="server" ID="btnEnviar" Text="Enviar" CssClass="btn btn-primary mt-5" />
+                    <asp:Button runat="server" ID="btnGuardar" Text="Guardar" CssClass="btn btn-primary mt-5" OnClick="btnGuardar_Click" />
                 </div>
             </div>
             <!-- Imagen de perfil -->
-
             <div class="formImageContainer">
                 <h3 class="text-center">Imagen de perfil</h3>
 
                 <!-- Radio btns-->
                 <div>
                     <label class="form-label">Cargar imágen de perfil</label>
-                    <div class="d-flex flex-column">
-                        <asp:RadioButton Text="Cargar por URL" ID="rdbUrl" runat="server" GroupName="imagenPerfil" CssClass="mx-2" />
-                        <input type="radio" name="name" value="Cargal por URL" />
-                        <asp:RadioButton Text="Cargar imagen local" ID="rdbLocal" runat="server" GroupName="imagenPerfil" CssClass="mx-2" />
 
+                    <div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="imagenPerfil" id="rdbUrl">
+                            <label class="form-check-label" for="rdbUrl">
+                                Cargar por URL
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="imagenPerfil" id="rdbLocal">
+                            <label class="form-check-label" for="rdbLocal">
+                                Cargar imagen local
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Default radio
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Default checked radio
-                        </label>
-                    </div>
-
                 </div>
+
                 <!-- URL -->
                 <label for="txtUrlImagen" class="form-label">URL:</label>
-
-                <div>
-                    <%
-                        if (rdbUrl.Checked)
-                        {%>
-
-                    <asp:TextBox runat="server" ID="txtUrlImagen" placeholder="Ingrese la URL de su imagen de perfil" CssClass="form-control mb-4" />
-                    <%}
-                        else if (rdbLocal.Checked)
-                        {%>
-                    <input type="file" id="txtImagen" runat="server" class="form-control" />
-                    <%}
-
-                    %>
+                <div class="d-flex flex-column align-items-center">
+                    <div>
+                        <input type="text" id="txtUrlImagen" clientidmode="Static" runat="server" placeholder="Ingrese la URL de su imagen de perfil" class="form-control mb-4" readonly="true" />
+                        <input type="file" id="txtImagen" clientidmode="Static" runat="server" class="form-control" />
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
+                            runat="server" CssClass="img-fluid my-3" Width="50%" />
+                    </div>
                 </div>
 
-                <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
-                    runat="server" CssClass="img-fluid pb-3 mt-4" Width="50%" />
+                <div class="d-flex justify-content-center">
+                    <asp:Button Text="Cambiar imágen de perfil" ID="btnImg" OnClick="btnImg_Click" CssClass="btn btn-primary text-center" runat="server" />
+
+                </div>
+
             </div>
         </div>
     </div>
+
+
+
 </asp:Content>
 
 
