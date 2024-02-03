@@ -7,7 +7,7 @@
     <asp:ScriptManager runat="server" />
 
     <div class="generalContainer">
-        <h2 class="text-center">Perfil de Usuario</h2>
+        <h2 class="text-center" runat="server" id="saludo"></h2>
         <asp:Label Text="text" ID="lblPrueba" runat="server" />
         <div class="profileContainer boxShadow">
             <!-- Datos del usuario -->
@@ -60,7 +60,7 @@
                 <div class="d-flex flex-column align-items-center">
                     <div>
                         <input type="text" id="txtUrlImagen" clientidmode="Static" runat="server" placeholder="Ingrese la URL de su imagen de perfil" class="form-control mb-4" readonly="true" />
-                        <input type="file" id="txtImagen" clientidmode="Static" runat="server" class="form-control" />
+                        <input type="file" id="txtImagen" clientidmode="Static" runat="server" class="form-control" disabled />
                     </div>
                     <div class="d-flex justify-content-center">
                         <asp:Image ID="imgNuevoPerfil" ImageUrl="https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg"
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <asp:Button Text="Cambiar imágen de perfil" ID="btnImg" OnClick="btnImg_Click" CssClass="btn btn-primary text-center" runat="server" />
+                    <asp:Button Text="Cambiar imágen de perfil" ID="btnImg" clientidmode="Static" OnClick="btnImg_Click" CssClass="btn btn-primary text-center" runat="server" />
 
                 </div>
 

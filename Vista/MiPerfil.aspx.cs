@@ -20,6 +20,9 @@ namespace Vista
                     if (Seguridad.sesionActiva(Session["usuario"]))
                     {
                         Usuario usuario = (Usuario)Session["usuario"];
+                                                
+                        saludo.InnerText = "Perfil de " + (string.IsNullOrEmpty(usuario.Nombre) ? "usuario" : usuario.Nombre);
+                                            
 
                         txtEmail.Text = usuario.Email;
                         txtEmail.ReadOnly = true;
@@ -27,7 +30,7 @@ namespace Vista
                         txtNombre.Text = usuario.Nombre;
                         txtApellido.Text = usuario.Apellido;
 
-                        lblPrueba.Text = usuario.UrlImagen.ToString();
+                       // lblPrueba.Text = usuario.UrlImagen.ToString();
 
                         if (!string.IsNullOrEmpty(usuario.UrlImagen))
                         {
@@ -65,8 +68,8 @@ namespace Vista
                 usuario.Nombre = txtNombre.Text;
                 usuario.Apellido = txtApellido.Text;
 
-              negocio.actualizarUsuario(usuario);
-                               
+                negocio.actualizarUsuario(usuario);
+
             }
             catch (Exception ex)
             {
@@ -86,36 +89,42 @@ namespace Vista
 
                 string ruta = Server.MapPath("/images/");
 
-                if(txtUrlImagen.Value != "")
+                if (txtUrlImagen.Value != "")
                 {
                     usuarioImg.UrlImagen = txtUrlImagen.Value;
                     lblPrueba.Text = "Cambio de imagen realizado";
-                } 
-                else if(txtUrlImagen.Value == "")
+                }
+
+                if (txtImagen.PostedFile != null && txtImagen.PostedFile.ContentLength > 0)
                 {
-                    lblPrueba.Text = "Está vacío";
+                    txtImagen.PostedFile.SaveAs(ruta + "perfil-" + usuarioImg.Id + ".jpg");
+                    usuarioImg.UrlImagen = "perfil-" + usuarioImg.Id + ".jpg";
+                }
+
+                if( (string.IsNullOrEmpty(usuarioImg.UrlImagen)) && txtUrlImagen.Value == "" && txtImagen.PostedFile == null )
+                {
+                    return;
                 }
 
                 negocio.actualizarUsuario(usuarioImg);
 
                 // Actualizar preview
-                imgNuevoPerfil.ImageUrl = usuarioImg.UrlImagen;
-                
-
-                
                 //Actualizar el avatar
                 Image img = (Image)Master.FindControl("imgAvatar");
 
                 if (img.ImageUrl.Contains("http"))
                 {
                     img.ImageUrl = usuarioImg.UrlImagen;
+                    imgNuevoPerfil.ImageUrl = usuarioImg.UrlImagen;
                 }
                 else
                 {
                     img.ImageUrl = "~/images/" + usuarioImg.UrlImagen;
+                    imgNuevoPerfil.ImageUrl = "~/images/" + usuarioImg.UrlImagen;
                 }
 
-                
+
+
             }
             catch (Exception ex)
             {
