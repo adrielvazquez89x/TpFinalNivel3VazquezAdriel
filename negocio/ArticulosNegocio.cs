@@ -19,7 +19,7 @@ namespace negocio
 
             try
             {
-                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%'";
+                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id "; // And CODIGO NOT LIKE '%(BAJA)%'
 
                 if (id != "")
                 {
@@ -101,12 +101,22 @@ namespace negocio
             }
         }
 
-        public void eliminarArticulo(Articulo articulo)
+        public void eliminarArticulo(Articulo articulo, bool reactivar = false)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setConsulta($"update ARTICULOS set Codigo = '{articulo.Codigo} (BAJA)' where Id = {articulo.Id}");
+                if (reactivar)
+                {
+                    articulo.Codigo = generarNuevoCodigo(articulo.Codigo);
+                    datos.setConsulta($"update ARTICULOS set Codigo = '{articulo.Codigo}' where Id = {articulo.Id}");
+                }
+                else
+                {
+                    datos.setConsulta($"update ARTICULOS set Codigo = '{articulo.Codigo} (BAJA)' where Id = {articulo.Id}");
+
+                }
+
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -120,7 +130,33 @@ namespace negocio
             }
         }
 
+        public void desaparecerDeLaFazDeLaBaseDeDatos(int id)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.setConsulta("DELETE FROM ARTICULOS WHERE id = @id");
+                datos.setParams("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         //Filtro
+
+        private string generarNuevoCodigo(string codigo)
+        {
+            if (codigo.Contains("(BAJA)"))
+            {
+                codigo = codigo.Replace("(BAJA)", "");
+            }
+
+            return codigo;
+        }
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
@@ -129,7 +165,7 @@ namespace negocio
 
             try
             {
-                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%' AND ";
+                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id  AND "; // código extraido And CODIGO NOT LIKE '%(BAJA)%'
 
                 if (campo == "Precio")
                 {

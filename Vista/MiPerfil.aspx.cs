@@ -11,6 +11,8 @@ namespace Vista
 {
     public partial class MiPerfil : System.Web.UI.Page
     {
+        public bool IsAnAdmin { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -30,7 +32,9 @@ namespace Vista
                         txtNombre.Text = usuario.Nombre;
                         txtApellido.Text = usuario.Apellido;
 
-                       // lblPrueba.Text = usuario.UrlImagen.ToString();
+                        IsAnAdmin = usuario.Admin;
+
+                        lblPrueba.Text = IsAnAdmin.ToString();
 
                         if (!string.IsNullOrEmpty(usuario.UrlImagen))
                         {
@@ -69,6 +73,8 @@ namespace Vista
                 usuario.Apellido = txtApellido.Text;
 
                 negocio.actualizarUsuario(usuario);
+
+                saludo.InnerText = "Perfil de " + (string.IsNullOrEmpty(usuario.Nombre) ? "usuario" : usuario.Nombre);
 
             }
             catch (Exception ex)

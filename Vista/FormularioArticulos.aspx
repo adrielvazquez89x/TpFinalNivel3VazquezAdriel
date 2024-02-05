@@ -28,7 +28,7 @@
                 <!-- Precio -->
                 <div class="mb-3">
                     <asp:Label ID="lblPrecio" runat="server" Text="Precio"></asp:Label>
-                    <asp:TextBox ID="txtprecio" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <!-- Marca -->
                 <div class="mb-3">
@@ -42,9 +42,9 @@
                 </div>
                 <!-- Botones -->
                 <div class="mb-3">
-                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" />
-                    <asp:Button Text="Desactivar" ID="btnDesactivar" CssClass="btn btn-warning" runat="server" />
-                    <a href="PokemonLista.aspx" class="btn btn-secondary">Cancelar</a>
+                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
+                    <asp:Button Text="Desactivar" ID="btnDesactivar" CssClass="btn btn-warning" runat="server" OnClick="btnDesactivar_Click" />
+                    <a href="ArticulosLista.aspx" class="btn btn-secondary">Cancelar</a>
                 </div>
             </div>
 
@@ -60,9 +60,12 @@
                     <ContentTemplate>
                         <div class="mb-3">
                             <asp:Label ID="lblUrl" runat="server" Text="Url Imágen"></asp:Label>
-                            <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" AutoPostBack="true"></asp:TextBox>
-                            <!--OnTextChanged="txtUrl_TextChanged"-->
-                            <asp:Image ImageUrl="https://editorial.unc.edu.ar/wp-content/uploads/sites/33/2022/09/placeholder.png" runat="server" ID="imgPokemon" Width="60%" CssClass="mt-3" />
+                            <asp:TextBox ID="txtUrl" runat="server" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtUrl_TextChanged"></asp:TextBox>
+                            <div class="d-flex justify-content-center">
+                                <asp:Image ImageUrl="https://editorial.unc.edu.ar/wp-content/uploads/sites/33/2022/09/placeholder.png" runat="server"
+                                    ID="imgArticulo" CssClass="imgForm" onerror="this.src = 'https://editorial.unc.edu.ar/wp-content/uploads/sites/33/2022/09/placeholder.png'" />
+
+                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -73,16 +76,21 @@
                 <ContentTemplate>
                     <div class="row">
                         <div class="mb-3">
-                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" />
+                            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
                         </div>
                         <!-- Confirmar eliminación -->
-                        <% //if (ConfirmaEliminacion)
-// { %>
+                        <% if (ConfirmaEliminacion)
+                            { %>
                         <div class="mb-3">
-                            <asp:CheckBox Text="Confirmar eliminación" ID="chkConfirmarEliminacion" runat="server" />
-                            <asp:Button Text="Eliminar" ID="btConfirmarElimnar" CssClass="btn btn-outline-danger" runat="server" />
+                            <asp:Label Text="Esta acción es irreversible" CssClass="text-danger" runat="server" />
+                            <div class="mb-3">
+                                <asp:CheckBox Text="Confirmar eliminación" ID="chkConfirmarEliminacion" runat="server" />
+                            </div>
+                            <div class="mb-3">
+                                <asp:Button Text="Eliminar" ID="btnConfirmarEliminar" CssClass="btn btn-outline-danger" runat="server" OnClick="btnConfirmarEliminar_Click" />
+                            </div>
                         </div>
-                        <% //} %>
+                        <% } %>
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>

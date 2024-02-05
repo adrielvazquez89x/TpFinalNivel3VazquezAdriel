@@ -30,6 +30,16 @@
                 <div>
                     <asp:Button runat="server" ID="btnGuardar" Text="Guardar" CssClass="btn btn-primary mt-5" OnClick="btnGuardar_Click" />
                 </div>
+                <%
+                    if (IsAnAdmin)
+                    { %>
+                <div class="my-5">
+                    <h5 class="mb-2">Bienvenido, oh supremo Admin</h5>
+
+                    <a href="ArticulosLista.aspx" class="btn btn-success">Adminstrar artículos</a>
+                </div>
+                <%}
+                %>
             </div>
             <!-- Imagen de perfil -->
             <div class="formImageContainer">
@@ -69,7 +79,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <asp:Button Text="Cambiar imágen de perfil" ID="btnImg" clientidmode="Static" OnClick="btnImg_Click" CssClass="btn btn-primary text-center" runat="server" />
+                    <asp:Button Text="Cambiar imágen de perfil" ID="btnImg" ClientIDMode="Static" OnClick="btnImg_Click" CssClass="btn btn-primary text-center" runat="server" />
 
                 </div>
 

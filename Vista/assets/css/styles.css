@@ -356,8 +356,8 @@ header {
 }
 
 .btnFav {
-    cursor: pointer;
-    font-size: 18px;
+    color: red;
+    font-size: 20px;
     transition: transform 0.1s;
 }
 
@@ -367,6 +367,13 @@ header {
 
 .btnFavChecked {
     color: red;
-    cursor: pointer;
-    font-size: 20px;
+    font-size: 22px;
 }
+    .btnFavChecked:hover {
+        color: darkred ;
+    }
+
+    .imgForm {
+        margin-top: 20px;
+        max-width: 400px;
+    }

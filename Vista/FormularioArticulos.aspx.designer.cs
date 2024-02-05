@@ -87,13 +87,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Label lblPrecio;
 
         /// <summary>
-        /// Control txtprecio.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprecio;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
 
         /// <summary>
         /// Control lblMarca.
@@ -186,13 +186,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox txtUrl;
 
         /// <summary>
-        /// Control imgPokemon.
+        /// Control imgArticulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgPokemon;
+        protected global::System.Web.UI.WebControls.Image imgArticulo;
 
         /// <summary>
         /// Control btnEliminar.
@@ -213,12 +213,12 @@ namespace Vista
         protected global::System.Web.UI.WebControls.CheckBox chkConfirmarEliminacion;
 
         /// <summary>
-        /// Control btConfirmarElimnar.
+        /// Control btnConfirmarEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btConfirmarElimnar;
+        protected global::System.Web.UI.WebControls.Button btnConfirmarEliminar;
     }
 }

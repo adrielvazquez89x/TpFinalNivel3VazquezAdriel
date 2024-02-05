@@ -86,3 +86,29 @@ function ponerRojoPass(mensaje) {
     txtPassword.classList.add("is-invalid");
 
 }
+
+
+//Validación campo precio del admin
+/*
+const btnBuscar = document.querySelector('#btnBuscar');
+
+btnBuscar.addEventListener('click', validarCampos);
+
+const ddlCampo = document.querySelector('#ddlCampo');
+const txtFiltroAvanzado = document.querySelector('#txtFiltroAvanzado');
+
+console.log(btnBuscar);
+
+function validarCampos() {
+
+
+    if (ddlCampo.value == "Precio") {
+
+        if (txtFiltroAvanzado.value == "") {
+            txtFiltroAvanzado.classList.add('is-invalid');
+        }
+    }
+
+}
+
+*/

@@ -15,13 +15,22 @@ namespace Vista
     {
 
         /// <summary>
-        /// Control Label1.
+        /// Control btnHeartChecked.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.LinkButton btnHeartChecked;
+
+        /// <summary>
+        /// Control bntHeart.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton bntHeart;
 
         /// <summary>
         /// Control lblPrueba.

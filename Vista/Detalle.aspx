@@ -9,25 +9,39 @@
 
             <div class="articleDetails">
                 <div class="articleImage">
-                    <img src="<%:articulo.UrlImg %>" onerror="this.src='https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg'" alt="Imagen del Artículo">
+                    <img src="<%:ArticuloActual.UrlImg %>" onerror="this.src='https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg'" alt="Imagen del Artículo">
                 </div>
                 <div class="articleContent">
-                    <p class="articleName"><%:articulo.Fabricante.Nombre %></p>
-                    <h3><%: articulo.Nombre %></h3>
-                    <p class="articleDescription"><%:articulo.Descripcion %></p>
-                    <p class="articlePrice">$<%: articulo.Precio %></p>
-                    <div class="btnFav">
-                        <i class="fa fa-heart-o"></i>
-                    </div>
-                    <div class="btnFavChecked">
+                    <p class="articleName"><%:ArticuloActual.Fabricante.Nombre %></p>
+                    <h3><%: ArticuloActual.Nombre %></h3>
+                    <p class="articleDescription"><%:ArticuloActual.Descripcion %></p>
+                    <p class="articlePrice">$<%: ArticuloActual.Precio %></p>
+
+                    <%
+                        if (SesionActiva)
+                        {
+                            if (ArticuloFaveado)
+                            {%>
+
+                    <asp:LinkButton runat="server" ID="btnHeartChecked" OnClick="btnHeartChecked_Click" CssClass="btnFavChecked">
                         <i class="fa fa-heart"></i>
-                    </div>
-                    <asp:Label Text="" ID="Label1" runat="server" />
+                    </asp:LinkButton>
+
+                    <%}
+                        else
+                        {%>
+                    <asp:LinkButton runat="server" ID="bntHeart" OnClick="bntHeart_Click" CssClass="btnFav">
+                        <i class="fa fa-heart-o"></i>
+                    </asp:LinkButton>
+                    <%}
+                        }
+                    %>
                 </div>
+                <asp:Label Text="text" ID="lblPrueba" runat="server" />
             </div>
 
 
         </div>
     </div>
-    <asp:Label Text="" ID="lblPrueba" runat="server" />
+
 </asp:Content>
