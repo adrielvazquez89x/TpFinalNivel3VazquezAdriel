@@ -11,12 +11,12 @@ namespace Vista
 {
     public partial class Favoritos : System.Web.UI.Page
     {
-        List<ArticuloFavorito> ListaFavoritos { get; set; }
+        public List<Articulo> ListaFavoritos { get; set; }
+
+        public List<ArticuloFavorito> ListaIdsFavoritos { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (!IsPostBack)
@@ -24,28 +24,53 @@ namespace Vista
                     if (Seguridad.sesionActiva(Session["usuario"]))
                     {
                         Usuario usuario = (Usuario)Session["usuario"];
-                        FavoritosNegocio favoritos = new FavoritosNegocio();
-                        ArticulosNegocio articulos = new ArticulosNegocio();
+                        ListaIdsFavoritos = listarIds(usuario.Id);
 
-                        ListaFavoritos = favoritos.listarFavoritos(usuario.Id);
-
-                        
-                
-
-
-
+                        ListaFavoritos = listarFavoritos(ListaIdsFavoritos);
                     }
                 }
 
-
-
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
 
-                throw;
             }
         }
+
+        private List<ArticuloFavorito> listarIds(int idUsuario)
+        {
+            FavoritosNegocio favoritos = new FavoritosNegocio();
+            List<ArticuloFavorito> lista = new List<ArticuloFavorito>();
+
+            lista = favoritos.listarFavoritos(idUsuario);
+
+            return lista;
+        }
+
+        private List<Articulo> listarFavoritos(List<ArticuloFavorito> listaIds)
+        {
+            List<Articulo> listaArticulos = new List<Articulo>();
+            List<Articulo> listaAux = new List<Articulo>();
+            ArticulosNegocio negocio = new ArticulosNegocio();
+
+            listaAux = negocio.listarArticulos();
+
+            foreach (Articulo art in listaAux)
+            {
+                foreach (ArticuloFavorito fav in listaIds)
+                {
+                    if (art.Id == fav.IdArticulo)
+                    {
+                        listaArticulos.Add(art);
+                    }
+                }
+            }
+
+            return listaArticulos;
+        }
+
+        private void 
     }
 }
