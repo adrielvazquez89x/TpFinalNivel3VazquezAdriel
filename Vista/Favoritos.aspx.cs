@@ -27,6 +27,9 @@ namespace Vista
                         ListaIdsFavoritos = listarIds(usuario.Id);
 
                         ListaFavoritos = listarFavoritos(ListaIdsFavoritos);
+
+                        ripiter.DataSource = ListaFavoritos;
+                        ripiter.DataBind();
                     }
                 }
 
@@ -71,6 +74,33 @@ namespace Vista
             return listaArticulos;
         }
 
-        private void 
+        protected void bntEliminar_Click(object sender, EventArgs e)
+        {
+            int idFav = int.Parse(((LinkButton)sender).CommandArgument);
+            int idUser = ((Usuario)Session["usuario"]).Id;
+
+            try
+            {
+                FavoritosNegocio negocio = new FavoritosNegocio();
+                negocio.eliminarFavorito(idUser, idFav);
+
+                ListaIdsFavoritos = listarIds(idUser);
+
+                ListaFavoritos = listarFavoritos(ListaIdsFavoritos);
+
+                ripiter.DataSource = ListaFavoritos;
+                ripiter.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+
+
+        }
+
+
     }
 }

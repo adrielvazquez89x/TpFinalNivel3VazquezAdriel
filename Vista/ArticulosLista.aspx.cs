@@ -17,11 +17,11 @@ namespace Vista
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!Seguridad.esAdmin(Session["usuario"]))
-            //{
-            //    Session.Add("error", "Se requiere permisos de Admin para esta sección");
-            //    Response.Redirect("Error.aspx");
-            //}
+            if (!Seguridad.esAdmin(Session["usuario"]))
+            {
+                Session.Add("error", "Se requiere permisos de Admin para esta sección");
+                Response.Redirect("Error.aspx");
+            }
             FiltroAvanzado = chkAvanzado.Checked;
             ListaVacia = false;
 
@@ -39,7 +39,7 @@ namespace Vista
                 ArticulosNegocio negocio = new ArticulosNegocio();
                 List<Articulo> lista = negocio.listarArticulos();
                 Session.Add("listaArticulos", lista);
-                
+
                 dgvArticulos.DataSource = Session["listaArticulos"];
                 dgvArticulos.DataBind();
 
@@ -104,7 +104,7 @@ namespace Vista
             dgvArticulos.DataBind();
 
             ListaVacia = verificarVacio(listaFiltrada);
-            
+
         }
 
         // Filtro AVanzado
@@ -134,7 +134,7 @@ namespace Vista
             dgvArticulos.DataSource = lista;
             dgvArticulos.DataBind();
 
-            
+
             ListaVacia = verificarVacio(lista);
         }
 

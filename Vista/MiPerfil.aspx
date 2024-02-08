@@ -8,7 +8,6 @@
 
     <div class="generalContainer">
         <h2 class="text-center" runat="server" id="saludo"></h2>
-        <asp:Label Text="text" ID="lblPrueba" runat="server" />
         <div class="profileContainer boxShadow">
             <!-- Datos del usuario -->
             <div class="formProfileContainer">
@@ -34,7 +33,7 @@
                     if (IsAnAdmin)
                     { %>
                 <div class="my-5">
-                    <h5 class="mb-2">Bienvenido, oh supremo Admin</h5>
+                    <h5 class="mb-2">Bienvenido, Administrador </h5>
 
                     <a href="ArticulosLista.aspx" class="btn btn-success">Adminstrar artículos</a>
                 </div>

@@ -15,6 +15,12 @@ namespace Vista
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["usuario"]))
+            {
+                Session.Add("error", "Se requiere permisos de Admin para esta sección");
+                Response.Redirect("Error.aspx");
+            }
+
             CategoriasNegocio categorias = new CategoriasNegocio();
             MarcasNegocio marcas = new MarcasNegocio();
             ConfirmaEliminacion = false;

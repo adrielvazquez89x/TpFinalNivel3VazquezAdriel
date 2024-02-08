@@ -34,7 +34,7 @@ namespace Vista
 
                         IsAnAdmin = usuario.Admin;
 
-                        lblPrueba.Text = IsAnAdmin.ToString();
+                        
 
                         if (!string.IsNullOrEmpty(usuario.UrlImagen))
                         {
@@ -98,7 +98,7 @@ namespace Vista
                 if (txtUrlImagen.Value != "")
                 {
                     usuarioImg.UrlImagen = txtUrlImagen.Value;
-                    lblPrueba.Text = "Cambio de imagen realizado";
+                    
                 }
 
                 if (txtImagen.PostedFile != null && txtImagen.PostedFile.ContentLength > 0)

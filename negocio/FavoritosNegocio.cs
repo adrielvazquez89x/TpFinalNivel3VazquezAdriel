@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace negocio
                 throw;
             }
 
-            return listaFavoritos;
+            
         }
 
         public void agregarFavorito(int idUser, int idArticulo)
@@ -83,6 +84,23 @@ namespace negocio
             finally
             {
                 datos.cerrarConexion();
+            }
+        }
+
+        public void eliminacionMultiple(int IdUser, List<int> listaIds)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string idsStringify = string.Join(",", listaIds);
+                datos.setConsulta($"DELETE FROM FAVORITOS WHERE IdUser = {IdUser} AND IdArticulo IN ({idsStringify})");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
             }
         }
     }
