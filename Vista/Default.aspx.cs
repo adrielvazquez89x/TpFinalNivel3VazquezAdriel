@@ -49,7 +49,7 @@ namespace Vista
 
         protected void ddlOrdenar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            consola.Text = ddlOrdenar.SelectedIndex.ToString();
+            
             if (ddlOrdenar.SelectedIndex == 0)
             {
                 ListaArticulos = ListaArticulos.OrderBy(x => x.Nombre).ToList();
@@ -223,6 +223,11 @@ namespace Vista
 
 
             ListaArticulos = listaBusqueda;
+        }
+
+        protected void btnBuscar_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }

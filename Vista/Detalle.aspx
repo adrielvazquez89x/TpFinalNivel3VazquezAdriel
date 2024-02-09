@@ -37,7 +37,7 @@
                         }
                     %>
                 </div>
-                <asp:Label Text="text" ID="lblPrueba" runat="server" />
+                
             </div>
 
 

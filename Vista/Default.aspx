@@ -12,7 +12,9 @@
                     <asp:Label Text="Buscar" runat="server" CssClass="form-label" />
                     <div class="d-flex">
                         <asp:TextBox runat="server" ID="txtBuscar" CssClass="form-control" />
-                        <asp:Button Text="Lupa" runat="server" ID="btnBuscar" OnClick="btnBuscar_Click" CssClass="mx-1" />
+                        <asp:LinkButton runat="server" ID="btnBuscar" OnClick="btnBuscar_Click" CssClass="bntSearch"> 
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </asp:LinkButton>
 
                     </div>
                 </div>
@@ -51,10 +53,10 @@
                     <asp:DropDownList ID="ddlCategorias" runat="server" CssClass="form-control"></asp:DropDownList>
                 </div>
             </div>
-            <asp:Button Text="Filtrar" runat="server" ID="btnFiltrar" OnClick="btnFiltrar_Click" />
-            <asp:Button Text="Limpiar Filtros" runat="server" ID="btnLimpiarFiltros" OnClick="btnLimpiarFiltros_Click" />
+            <asp:Button Text="Filtrar" runat="server" ID="btnFiltrar" OnClick="btnFiltrar_Click" CssClass="btn btn-info mt-4" />
+            <asp:Button Text="Limpiar Filtros" runat="server" ID="btnLimpiarFiltros" OnClick="btnLimpiarFiltros_Click" CssClass="btn btn-info mt-4" />
 
-            <asp:Label Text="consola" ID="consola" runat="server" />
+
 
             <%
                 if (FiltrosAplicados)
