@@ -35,10 +35,8 @@ header {
     padding: 0 100px;
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--color1);
+.logo img {
+    max-width: 50%;
 }
 
 .hamburger {
@@ -273,16 +271,12 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-    .containerItems img {
-        max-width: 100px;
-        height: auto;
-    }
 
 /* Tarjetita*/
-.card {
+.cardContainer {
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     width: 300px;
     margin: 15px;
@@ -293,14 +287,15 @@ header {
     transition: transform 0.3s;
 }
 
-    .card:hover {
+    .cardContainer:hover {
         transform: scale(1.03);
     }
 
-    .card img {
-        
-        padding: 5px;
-        object-fit: cover;
+    .cardContainer img {
+        max-height: 200px;
+        max-width: 200px;
+        object-fit: contain;
+        padding-top: 20px;
     }
 
 .cardContent {
@@ -414,9 +409,11 @@ header {
     color: var(--color2);
 }
 
-
+.fa-exclamation-circle {
+    font-size: 36px;
+    color: var(--color2);
+}
 /* Footer */
-
 footer {
     background-color: #6C809A;
     color: var(--color1);

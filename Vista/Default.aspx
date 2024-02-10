@@ -79,7 +79,7 @@
                     {
                         foreach (dominio.Articulo articulo in ListaArticulos)
                         {%>
-                <div class="card">
+                <div class="cardContainer">
                     <img src="<%:articulo.UrlImg %>" onerror="this.src='https://www.palomacornejo.com/wp-content/uploads/2021/08/no-image.jpg'" class="card-img-top" alt="Imagen del artículo">
                     <div class="cardContent">
                         <h5 class="cardTitle"><%:articulo.Nombre %></h5>

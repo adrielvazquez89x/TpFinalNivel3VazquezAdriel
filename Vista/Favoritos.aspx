@@ -4,11 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="text-center">Favoritos</h1>
-    <div class="row justify-content-center">
+
+    <% if (ListaFavoritos.Count != 0 && ListaFavoritos != null)
+        {%>
+    <div class="row justify-content-center gap-4">
         <asp:Repeater runat="server" ID="ripiter">
             <ItemTemplate>
 
-                <div class="card mb-3 col-6" style="max-width: 540px;">
+                <div class="card mb-3 col-5" style="max-width: 700px;">
                     <div class="row g-0">
 
                         <div class="col-md-4 favImg py-3">
@@ -27,7 +30,7 @@
                         <div class="d-flex col-md-1 justify-content-center align-items-center">
                             <asp:LinkButton runat="server" ID="bntEliminar" CssClass="btnDelete"
                                 OnClick="bntEliminar_Click" CommandArgument='<%#Eval("Id") %>' CommandName="ArticuloId">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </asp:LinkButton>
 
                         </div>
@@ -36,5 +39,13 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
-
+    <%}
+        else
+        {%>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h5>Aún no hay artículos marcados como favoritos</h5>
+        <i class="fa fa-exclamation-circle " aria-hidden="true"></i>
+    </div>
+    <%}
+    %>
 </asp:Content>

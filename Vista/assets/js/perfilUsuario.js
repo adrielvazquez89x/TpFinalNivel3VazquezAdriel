@@ -7,8 +7,6 @@ const txtImagen = document.querySelector('#txtImagen');
 
 //botonGuardarimg
 
-console.log("ASDASDASDASDASDASDASD");
-
 const btnImg = document.querySelector('#btnImg');
 
 // Eventos

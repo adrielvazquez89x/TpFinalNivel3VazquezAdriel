@@ -84,6 +84,13 @@ namespace Vista
 
             try
             {
+                Page.Validate();
+                if(!Page.IsValid)
+                {
+
+                    return;
+                }
+
                 Articulo nuevo = new Articulo();
 
                 nuevo.Codigo = txtCodigo.Text;
@@ -99,7 +106,7 @@ namespace Vista
                 nuevo.Fabricante.Id = int.Parse(ddlMarca.SelectedValue);
 
                 nuevo.Tipo = new Categoria();
-                nuevo.Tipo.Id = int.Parse(ddlMarca.SelectedValue);
+                nuevo.Tipo.Id = int.Parse(ddlCategoria.SelectedValue);
 
                 //validacion de campos
 

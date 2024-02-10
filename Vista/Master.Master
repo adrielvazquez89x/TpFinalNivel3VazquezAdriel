@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>MaxShop, programá tu futuro (?)</title>
+    <title>Catalog#</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/Content/font-awesome.css" rel="stylesheet" />
     <link href="/assets/css/styles.css" rel="stylesheet" />
@@ -16,7 +16,9 @@
     <form id="form1" runat="server" class="mainCont">
         <header id="header">
 
-            <div class="logo">Logo</div>
+            <div class="logo">
+                <img src="/assets/images/logo.png" alt="Alternate Text" />
+            </div>
             <div class="hamburger" id="btnMenu">
                 <i class="fa fa-bars"></i>
             </div>
@@ -54,10 +56,10 @@
 
     <footer>
         <div class="text-center">
-            <p>Nombre de la app</p>
-            <a href="https://maxiprograma.com">maxiprograma.com</a>
+            <p>Catalog#</p>
+            <a href="https://maxiprograma.com">.Net lvl3 - maxiprograma.com</a>
             <a href="https://adrielvazquez.com.ar">
-                <p>Desarrollado por Adriel Vazquez</p>
+                <p>Desarrollado con <i class="fa fa-desktop" aria-hidden="true"></i> por Adriel Vazquez</p>
             </a>
             <a href="https://www.linkedin.com/in/adriel-alejandro-vazquez" class="iconFooter">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>

@@ -18,17 +18,23 @@
                 <!-- Codigo -->
                 <div class="mb-3">
                     <asp:Label ID="lblCodigo" runat="server" Text="Código"></asp:Label>
-                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtCodigo" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
+                    <span id="spanValidatorCodigo"></span>
+                    <asp:RequiredFieldValidator ControlToValidate="txtCodigo" runat="server" />
                 </div>
                 <!-- Nombre -->
                 <div class="mb-3">
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>
-                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtNombre" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
+                    <span id="spanValidatorNombre"></span>
+                    <asp:RequiredFieldValidator ControlToValidate="txtNombre" runat="server" />
                 </div>
                 <!-- Precio -->
                 <div class="mb-3">
                     <asp:Label ID="lblPrecio" runat="server" Text="Precio"></asp:Label>
-                    <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtPrecio" ClientIDMode="Static" runat="server" CssClass="form-control"></asp:TextBox>
+                    <span id="spanValidatorPrecio"></span>
+                    <asp:RegularExpressionValidator ValidationExpression="^[0-9]+([,][0-9]{1,2})?$" ControlToValidate="txtPrecio" runat="server" />
                 </div>
                 <!-- Marca -->
                 <div class="mb-3">
@@ -42,7 +48,7 @@
                 </div>
                 <!-- Botones -->
                 <div class="mb-3">
-                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
+                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" OnClientClick="return validarFormulario()" />
                     <asp:Button Text="Desactivar" ID="btnDesactivar" CssClass="btn btn-warning" runat="server" OnClick="btnDesactivar_Click" />
                     <a href="ArticulosLista.aspx" class="btn btn-secondary">Cancelar</a>
                 </div>

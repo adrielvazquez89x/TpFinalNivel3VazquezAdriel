@@ -11,7 +11,7 @@ namespace Vista
 {
     public partial class Favoritos : System.Web.UI.Page
     {
-        public List<Articulo> ListaFavoritos { get; set; }
+        public List<Articulo> ListaFavoritos = new List<Articulo>();
 
         public List<ArticuloFavorito> ListaIdsFavoritos { get; set; }
 
@@ -25,6 +25,8 @@ namespace Vista
                     {
                         Usuario usuario = (Usuario)Session["usuario"];
                         ListaIdsFavoritos = listarIds(usuario.Id);
+
+                        
 
                         ListaFavoritos = listarFavoritos(ListaIdsFavoritos);
 

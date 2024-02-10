@@ -1,4 +1,4 @@
-﻿//Validaciones clásicas
+﻿// ********************* VALIDACIONES PARA EL REGISTRO ********************* \\
 
 //TextBox donde está el mail
 const txtUserName = document.querySelector('#txtUserName');
@@ -8,7 +8,6 @@ const txtPassword = document.querySelector('#txtPassword');
 //Mensajitos rojos debajo de los txtbox
 const spanValidatorEmail = document.querySelector('#spanValidatorEmail');
 const spanValidatorPass = document.querySelector('#spanValidatorPass');
-
 
 
 //Regularexpresion
@@ -78,7 +77,6 @@ function ponerVerdeCorreo() {
     txtUserName.classList.add("is-valid");
 }
 
-
 function ponerRojoPass(mensaje) {
 
     spanValidatorPass.textContent = mensaje;
@@ -88,27 +86,62 @@ function ponerRojoPass(mensaje) {
 }
 
 
-//Validación campo precio del admin
-/*
-const btnBuscar = document.querySelector('#btnBuscar');
+// ********************* VALIDACIONES PARA EL REGISTRO *********************
 
-btnBuscar.addEventListener('click', validarCampos);
+// TextBox de Codigo, Nombre y Precio.
+const txtCodigo = document.querySelector('#txtCodigo');
+const txtNombre = document.querySelector('#txtNombre');
+const txtPrecio = document.querySelector('#txtPrecio');
 
-const ddlCampo = document.querySelector('#ddlCampo');
-const txtFiltroAvanzado = document.querySelector('#txtFiltroAvanzado');
+//Spans para mensajes:
+const spanValidatorCodigo = document.querySelector('#spanValidatorCodigo');
+const spanValidatorNombre = document.querySelector('#spanValidatorNombre');
+const spanValidatorPrecio = document.querySelector('#spanValidatorPrecio');
 
-console.log(btnBuscar);
+//regex solo números:
 
-function validarCampos() {
+const regExNum = /^\d+(\,\d{1,2})?$/;
 
+function validarFormulario() {
 
-    if (ddlCampo.value == "Precio") {
+    //Validar campo vacío
+    if (txtCodigo.value == "") {
+        ponerRojoFormulario(txtCodigo, spanValidatorCodigo, "El código no puede ir vacío");
+        
+        return false;
+    }
+    ponerVerdeFormulario(txtCodigo, spanValidatorCodigo);
 
-        if (txtFiltroAvanzado.value == "") {
-            txtFiltroAvanzado.classList.add('is-invalid');
-        }
+    if (txtNombre.value == "") {
+        ponerRojoFormulario(txtNombre, spanValidatorNombre, "El nombre no puede ir vacío");
+        return false;
+    }
+    ponerVerdeFormulario(txtNombre, spanValidatorNombre);
+
+    if (txtPrecio.value == "") {
+        ponerRojoFormulario(txtPrecio, spanValidatorPrecio, "Por favor, poné un precio");
+        return false;
     }
 
+    if (!regExNum.test(txtPrecio.value)) {
+        ponerRojoFormulario(txtPrecio, spanValidatorPrecio, "Sólo números por favor");
+        return false;
+    }
+    ponerVerdeFormulario(txtPrecio, spanValidatorPrecio);
+
+    return true;
 }
 
-*/
+function ponerRojoFormulario(cajita, span, mensaje) {
+    span.textContent = mensaje;
+    span.classList.add("text-danger");
+    cajita.classList.remove("is-valid");
+    cajita.classList.add("is-invalid");
+}
+
+function ponerVerdeFormulario(cajita, span) {
+    span.textContent = "";
+    span.classList.remove("text-danger");
+    cajita.classList.remove("is-invalid");
+    cajita.classList.add("is-valid");
+}

@@ -8,6 +8,7 @@
             <h2 class="text-center mb-1">Registrate!</h2>
             <p class="text-center mb-4">(por ahora es gratis)</p>
             <div>
+                <!-- Campo correo-->
                 <div class="mb-3">
                     <asp:Label runat="server" Text="E-mail:" CssClass="form-label" />
                     <asp:TextBox runat="server" ID="txtUserName" ClientIDMode="Static" CssClass="form-control" placeholder="Ingrese su dirección de e-mail" />
@@ -16,6 +17,7 @@
                         ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" runat="server" />
                     <asp:RequiredFieldValidator ControlToValidate="txtUserName" runat="server"/>  
                 </div>
+                <!-- Campo Password-->
                 <div class="mb-3">
                     <asp:Label runat="server" Text="Contraseña:" CssClass="form-label" />
                     <asp:TextBox runat="server" ID="txtPassword" ClientIDMode="Static" CssClass="form-control" placeholder="Ingrese una contraseña" TextMode="Password" />

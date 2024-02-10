@@ -67,6 +67,7 @@
     <Content Include="ArticulosLista.aspx" />
     <Content Include="assets\css\styles.css" />
     <Content Include="assets\images\error.gif" />
+    <Content Include="assets\images\logo.png" />
     <Content Include="assets\js\perfilUsuario.js" />
     <Content Include="assets\js\validacion.js" />
     <Content Include="assets\js\main.js" />
