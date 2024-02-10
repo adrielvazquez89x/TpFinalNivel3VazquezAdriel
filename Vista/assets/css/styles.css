@@ -413,6 +413,12 @@ header {
     font-size: 36px;
     color: var(--color2);
 }
+
+.card-body a {
+    text-decoration:none;
+    color: var(--color2);
+}
+
 /* Footer */
 footer {
     background-color: #6C809A;

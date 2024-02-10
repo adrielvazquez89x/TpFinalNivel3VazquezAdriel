@@ -47,10 +47,12 @@ namespace Vista
                lblCorreoExistente.Visible = false;
                negocio.insertarUsuario(nuevoUsuario);
 
+               negocio.Login(nuevoUsuario);
+
 
                Session.Add("usuario", nuevoUsuario);
 
-               Response.Redirect("Default.aspx", false);
+               Response.Redirect("MiPerfil.aspx", false);
 
 
             }

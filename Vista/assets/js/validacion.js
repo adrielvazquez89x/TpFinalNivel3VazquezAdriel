@@ -12,7 +12,8 @@ const spanValidatorPass = document.querySelector('#spanValidatorPass');
 
 //Regularexpresion
 
-const regEx = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
+const regEx = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+
 
 function validar() {
     //Validaciones campos vacíos;

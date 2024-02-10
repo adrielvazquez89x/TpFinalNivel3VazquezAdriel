@@ -21,7 +21,9 @@
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title"><%#Eval("Nombre")%></h5>
+                                <a href="Detalle.aspx?id=<%#Eval("Id") %>">
+                                    <h5 class="card-title"><%#Eval("Nombre")%></h5>
+                                </a>
                                 <p class="card-text"><%#Eval("Descripcion") %></p>
                                 <p class="card-text"><small class="text-body-secondary">$ <%#Eval("Precio") %> </small></p>
                             </div>
