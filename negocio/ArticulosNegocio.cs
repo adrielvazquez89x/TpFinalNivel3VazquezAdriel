@@ -48,10 +48,14 @@ namespace negocio
                     listaArticulos.Add(auxiliar);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
 
 
@@ -132,9 +136,9 @@ namespace negocio
 
         public void desaparecerDeLaFazDeLaBaseDeDatos(int id)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
                 datos.setConsulta("DELETE FROM ARTICULOS WHERE id = @id");
                 datos.setParams("@id", id);
                 datos.ejecutarAccion();
@@ -143,6 +147,10 @@ namespace negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
