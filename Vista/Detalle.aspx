@@ -18,6 +18,13 @@
                     <p class="articlePrice">$<%: ArticuloActual.Precio %></p>
 
                     <%
+                        if (ArticuloActual.Codigo.Contains("(BAJA)"))
+                        {%>
+                    <p class="text-danger">Articulo no disponible.</p>
+                    <%}
+                    %>
+
+                    <%
                         if (SesionActiva)
                         {
                             if (ArticuloFaveado)
@@ -37,7 +44,7 @@
                         }
                     %>
                 </div>
-                
+
             </div>
 
 

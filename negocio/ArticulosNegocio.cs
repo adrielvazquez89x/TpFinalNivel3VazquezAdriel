@@ -19,7 +19,7 @@ namespace negocio
 
             try
             {
-                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id "; // And CODIGO NOT LIKE '%(BAJA)%'
+                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id  "; // And CODIGO NOT LIKE '%(BAJA)%'
 
                 if (id != "")
                 {
