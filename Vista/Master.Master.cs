@@ -11,6 +11,7 @@ namespace Vista
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+        public int CarritoLength { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             imgAvatar.ImageUrl = "https://cdn-icons-png.flaticon.com/512/9131/9131529.png";
@@ -24,6 +25,8 @@ namespace Vista
                 {
                     imgAvatar.ImageUrl = urlImagen.Contains("http") ? urlImagen : "~/images/" + urlImagen;
                 }
+                CarritoLength = usuario.Carrito == null ? 0 : contarArticulosCarrito(usuario);
+                lblCountCarrito.Text = CarritoLength.ToString();
             }
             else if (Page is MiPerfil || Page is Favoritos)
             {
@@ -35,6 +38,18 @@ namespace Vista
         {
             Session.Clear();
             Response.Redirect("Login.aspx");
+        }
+
+        private int contarArticulosCarrito(Usuario usuario)
+        {
+            int contador = 0;
+
+            foreach(var art in  usuario.Carrito)
+            {
+                contador += art.Cantidad;
+            }
+
+            return contador;
         }
     }
 }

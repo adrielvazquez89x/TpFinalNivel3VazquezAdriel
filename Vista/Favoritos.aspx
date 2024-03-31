@@ -10,7 +10,6 @@
     <div class="row justify-content-center gap-4">
         <asp:Repeater runat="server" ID="ripiter">
             <ItemTemplate>
-
                 <div class="card mb-3 col-5" style="max-width: 700px;">
                     <div class="row g-0">
 

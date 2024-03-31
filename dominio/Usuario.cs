@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace dominio
 {
@@ -14,7 +10,8 @@ namespace dominio
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string UrlImagen { get; set; }
-        public bool Admin {  get; set; }
+        public List<Articulo> Carrito { get; set; }
+        public bool Admin { get; set; }
 
     }
 }

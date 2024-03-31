@@ -66,17 +66,21 @@
   <ItemGroup>
     <Content Include="ArticulosLista.aspx" />
     <Content Include="assets\css\styles.css" />
+    <Content Include="assets\images\CARRITOSALVAJE.png" />
     <Content Include="assets\images\error.gif" />
     <Content Include="assets\images\logo.png" />
     <Content Include="assets\js\perfilUsuario.js" />
     <Content Include="assets\js\validacion.js" />
     <Content Include="assets\js\main.js" />
+    <Content Include="Carrito.aspx" />
+    <Content Include="Checkout.aspx" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Favoritos.aspx" />
+    <Content Include="Finalizar.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="FormularioArticulos.aspx" />
     <Content Include="Global.asax" />
@@ -92,6 +96,20 @@
     </Compile>
     <Compile Include="ArticulosLista.aspx.designer.cs">
       <DependentUpon>ArticulosLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -120,6 +138,13 @@
     </Compile>
     <Compile Include="Favoritos.aspx.designer.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Finalizar.aspx.cs">
+      <DependentUpon>Finalizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Finalizar.aspx.designer.cs">
+      <DependentUpon>Finalizar.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioArticulos.aspx.cs">
       <DependentUpon>FormularioArticulos.aspx</DependentUpon>

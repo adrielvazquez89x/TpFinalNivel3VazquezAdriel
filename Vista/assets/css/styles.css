@@ -1,10 +1,11 @@
 ﻿/* Variables */
 :root {
-    --color1: #fefefe;
-    --color2: #11101b;
-    --color3: #ff0000;
-    --color4: #dc3545;
-    --color5: #6C809A;
+    --color1: #fefefe; /* blanco */
+    --color2: #11101b; /*Negro */
+    --color3: #ff0000; /*Rojo */
+    --color4: #dc3545; /* Rojo copado */
+    --color5: #6C809A; /*celeste */
+    --color6: #009154; /*verde*/
 }
 
 /* General */
@@ -83,12 +84,14 @@ header {
 }
 
     .btnLogin:hover {
-        background-color: green;
+        background-color: var(--color6);
     }
 
 
-.btnRegistrarse {
-    display: block;
+.btnRegistrarse, .btnComprar {
+    display: inline-block;
+    background: none;
+    border: none;
     color: var(--color1);
     font-size: 20px;
     padding: 25px 25px;
@@ -100,24 +103,60 @@ header {
     .btnRegistrarse:hover {
         background-color: dodgerblue;
     }
-
-.btnSalir {
-    display: inline-block;
-    background: none;
-    border: none;
-    color: var(--color1);
-    font-size: 20px;
-    padding: 25px 25px;
-    margin: 0 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.2s;
+.btnComprar {
+    background-color: dodgerblue;
 }
+.btnComprar:hover {
+    background-color: var(--color6) ;
+}
+
+    .btnSalir, .btnVaciar {
+        display: inline-block;
+        background: none;
+        border: none;
+        color: var(--color1);
+        font-size: 20px;
+        padding: 25px 25px;
+        margin: 0 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.2s;
+    }
 
     .btnSalir:hover {
         background-color: var(--color4);
     }
+    .btnVaciar {
+        background-color: var(--color4);
+    }
 
+        .btnVaciar:hover {
+            background-color: var(--color3);
+        }
+
+.btnCart {
+    color: #ff6202;
+    cursor: pointer;
+    font-size: 32px;
+    margin-left: 2rem;
+    transition: 0.5s;
+}
+    .btnCart:hover {
+        color: var(--color6);
+    }
+
+.img-Cart{
+    width: 100px;
+
+}
+
+.wildCart{
+    display:flex;
+    justify-content:center;
+}
+    .wildCart img {
+        width: 50%;
+    }
 @media only screen and (max-width: 1320px) {
     header {
         padding: 0 50px;
@@ -180,7 +219,7 @@ header {
     }
 
     .btnLogin {
-        background-color: green;
+        background-color: var(--color6);
         padding: 12px;
         text-align: center;
     }

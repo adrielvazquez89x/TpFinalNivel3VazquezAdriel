@@ -11,34 +11,34 @@ namespace Vista
 {
 
 
-    public partial class Detalle
+    public partial class Carrito
     {
 
         /// <summary>
-        /// Control btnAgregarCarrito.
+        /// Control repeater.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarCarrito;
+        protected global::System.Web.UI.WebControls.Repeater repeater;
 
         /// <summary>
-        /// Control btnHeartChecked.
+        /// Control btnVaciarCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnHeartChecked;
+        protected global::System.Web.UI.WebControls.Button btnVaciarCarrito;
 
         /// <summary>
-        /// Control bntHeart.
+        /// Control btnRealizarCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton bntHeart;
+        protected global::System.Web.UI.WebControls.Button btnRealizarCompra;
     }
 }

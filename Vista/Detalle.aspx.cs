@@ -1,11 +1,9 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using dominio;
-using negocio;
 
 namespace Vista
 {
@@ -24,6 +22,8 @@ namespace Vista
         {
             string id = Request.QueryString["id"] != null ? Request.QueryString["id"] : "";
             ArticuloFaveado = false;
+            btnAgregarCarrito.Enabled = false;
+            btnAgregarCarrito.ToolTip = "Debes estar logeado para poder agregar al carrito";
 
             try
             {
@@ -33,6 +33,7 @@ namespace Vista
 
                 if (Seguridad.sesionActiva(UsuarioLogeado))
                 {
+
                     SesionActiva = true;
                 }
 
@@ -41,10 +42,13 @@ namespace Vista
 
                 if (SesionActiva)
                 {
+
                     ArticuloFaveado = checkearFavorito(ArticuloActual, UsuarioLogeado);
 
-                }
+                    if (ArticuloActual.Activo)
+                        btnAgregarCarrito.Enabled = true;
 
+                }
 
             }
             catch (Exception ex)
@@ -101,5 +105,32 @@ namespace Vista
 
             return false;
         }
+
+
+        protected void btnAgregarCarrito_Click(object sender, EventArgs e)
+        {
+            var articuloId = ArticuloActual.Id;
+            var ListaCompras = ((Usuario)Session["usuario"]).Carrito;
+            var articuloExistente = ListaCompras.FirstOrDefault(a => a.Id == articuloId);
+
+            if (articuloExistente != null)
+            {
+                // El artículo ya está en el carrito, actualiza la cantidad
+                articuloExistente.Cantidad++;
+            }
+            else
+            {
+                // El artículo no está en el carrito, agrégalo
+                ArticuloActual.Cantidad = 1; // Otra cantidad inicial si es necesario
+                UsuarioLogeado.Carrito.Add(ArticuloActual);
+            }
+
+            // Guarda el usuario actualizado en la sesión
+            Session["usuario"] = UsuarioLogeado;
+
+            // Redirige a la misma página para actualizar la vista
+            Response.Redirect(Request.RawUrl);
+        }
+
     }
 }

@@ -17,6 +17,8 @@
                     <p class="articleDescription"><%:ArticuloActual.Descripcion %></p>
                     <p class="articlePrice">$<%: ArticuloActual.Precio %></p>
 
+                    <asp:Button Text="Agregar al carrito" runat="server" ID="btnAgregarCarrito" OnClick="btnAgregarCarrito_Click"/>
+
                     <%
                         if (ArticuloActual.Codigo.Contains("(BAJA)"))
                         {%>
@@ -28,19 +30,21 @@
                         if (SesionActiva)
                         {
                             if (ArticuloFaveado)
+
                             {%>
 
                     <asp:LinkButton runat="server" ID="btnHeartChecked" OnClick="btnHeartChecked_Click" CssClass="btnFavChecked">
-                        <i class="fa fa-heart"></i>
+                                <i class="fa fa-heart"></i>
                     </asp:LinkButton>
 
                     <%}
                         else
                         {%>
                     <asp:LinkButton runat="server" ID="bntHeart" OnClick="bntHeart_Click" CssClass="btnFav">
-                        <i class="fa fa-heart-o"></i>
+                                <i class="fa fa-heart-o"></i>
                     </asp:LinkButton>
                     <%}
+
                         }
                     %>
                 </div>

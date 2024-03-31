@@ -44,6 +44,8 @@
                     {%>
                 <asp:Button Text="Salir" ID="btnSalir" CssClass="btnSalir" runat="server" OnClick="btnSalir_Click" />
                 <asp:Image ID="imgAvatar" Style="height: 40px; width: 40px; border-radius: 50%" runat="server" />
+                <a href="Carrito.aspx" class="btnCart"><i class="fa fa-shopping-cart"></i></a>
+                <asp:Label Text=" " ID="lblCountCarrito" runat="server" style="color: red" />
 
                 <%}
                 %>

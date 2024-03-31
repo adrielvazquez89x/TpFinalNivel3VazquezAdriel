@@ -19,6 +19,7 @@ namespace Vista
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
+            usuario.Carrito = new List<Articulo>();
             UsuarioNegocio negocio = new UsuarioNegocio();
 
             // Vamos a ver si validamos acá, o con JS o ambas.
@@ -30,6 +31,7 @@ namespace Vista
 
                 if(negocio.Login(usuario) )
                 {
+                   
                     Session.Add("usuario", usuario);
                     Response.Redirect("MiPerfil.aspx", false);
                 }
