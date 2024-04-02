@@ -15,18 +15,10 @@ namespace Vista
             Usuario usuario = (Usuario)Session["usuario"];
             ListaCompras = usuario.Carrito;
 
-            CalcularTotal();
+            TotalAPagar = usuario.CalcularTotal();
             repeater.DataSource = ListaCompras;
             repeater.DataBind();
 
-        }
-
-        public void CalcularTotal()
-        {
-            foreach (var item in ListaCompras)
-            {
-                TotalAPagar += item.Precio * item.Cantidad;
-            }
         }
 
         protected void btnAumentar_Click(object sender, EventArgs e)
@@ -43,7 +35,11 @@ namespace Vista
             var articuloId = int.Parse(((LinkButton)sender).CommandArgument);
             var articulo = ListaCompras.Find(art => art.Id == articuloId);
 
-            articulo.Cantidad--;
+            if (articulo.Cantidad > 1)
+                articulo.Cantidad--;
+            else
+                ListaCompras.Remove(articulo);
+
             Response.Redirect(Request.RawUrl);
         }
 
@@ -51,7 +47,7 @@ namespace Vista
         {
             var articuloId = int.Parse(((LinkButton)sender).CommandArgument);
             var articulo = ListaCompras.Find(art => art.Id == articuloId);
-            
+
             ListaCompras.Remove(articulo);
             Response.Redirect(Request.RawUrl);
         }

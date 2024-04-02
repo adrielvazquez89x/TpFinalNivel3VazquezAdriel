@@ -9,11 +9,8 @@ const txtPassword = document.querySelector('#txtPassword');
 const spanValidatorEmail = document.querySelector('#spanValidatorEmail');
 const spanValidatorPass = document.querySelector('#spanValidatorPass');
 
-
 //Regularexpresion
-
 const regEx = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-
 
 function validar() {
     //Validaciones campos vacíos;
@@ -87,7 +84,7 @@ function ponerRojoPass(mensaje) {
 }
 
 
-// ********************* VALIDACIONES PARA EL REGISTRO *********************
+// ********************* VALIDACIONES PARA EL ALTA *********************
 
 // TextBox de Codigo, Nombre y Precio.
 const txtCodigo = document.querySelector('#txtCodigo');
@@ -129,6 +126,64 @@ function validarFormulario() {
         return false;
     }
     ponerVerdeFormulario(txtPrecio, spanValidatorPrecio);
+
+    return true;
+}
+
+const txtNombreConfirmar = document.querySelector('#txtNombreConfirmar');
+const txtDni = document.querySelector('#txtDni');
+const txtDireccion = document.querySelector('#txtDireccion');
+const txtLocalidad = document.querySelector('#txtLocalidad');
+const txtCP = document.querySelector('#txtCP');
+
+const spanNombreConfirmar = document.querySelector('#spanNombreConfirmar');
+const spanDni = document.querySelector('#spanDni');
+const spanDireccion = document.querySelector('#spanDireccion');
+const spanLocalidad = document.querySelector('#spanLocalidad');
+const spanCp = document.querySelector('#spanCp');
+
+function validacionConfirmar() {
+
+    if (txtNombreConfirmar.value == "") {
+        ponerRojoFormulario(txtNombreConfirmar, spanNombreConfirmar, "El nombre no puede ir vacío");
+        return false;
+    }
+
+    ponerVerdeFormulario(txtNombreConfirmar, spanNombreConfirmar);
+
+    if (txtDni.value == "") {
+        ponerRojoFormulario(txtDni, spanDni, "El dni no puede ir vacío");
+        return false;
+    }
+
+
+    if (txtDni.value.length != 8) {
+        ponerRojoFormulario(txtDni, spanDni, "Formato inválido");
+        return false;
+    }
+
+    ponerVerdeFormulario(txtDni, spanDni);
+
+    if (txtDireccion.value == "") {
+        ponerRojoFormulario(txtDireccion, spanDireccion, "La dirección no puede ir vacía");
+        return false;
+    }
+
+    ponerVerdeFormulario(txtDireccion, spanDireccion);
+
+    if (txtLocalidad.value == "") {
+        ponerRojoFormulario(txtLocalidad, spanLocalidad, "La localidad no puede ir vacía");
+        return false;
+    }
+
+    ponerVerdeFormulario(txtLocalidad, spanLocalidad);
+
+    if (spanCp.value == "") {
+        ponerRojoFormulario(txtCP, spanCp, "Ingrese un codigo postal");
+        return false;
+    }
+
+    ponerVerdeFormulario(txtCP, spanCp);
 
     return true;
 }

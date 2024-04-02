@@ -73,7 +73,8 @@
     </table>
     <div class="d-flex justify-content-around">
         <asp:Button runat="server" ID="btnVaciarCarrito" OnClick="btnVaciarCarrito_Click" CssClass="btnVaciar" Text="Vaciar carrito" />
-        <asp:Button runat="server" ID="btnRealizarCompra" CssClass="btnComprar" Text="Realizar compra" />
+        <a href="Checkout.aspx" class="btnComprar">Realizar compra</a>
+       <%-- <asp:Button runat="server" ID="btnRealizarCompra" CssClass="btnComprar" Text="Realizar compra" />--%>
     </div>
 
 

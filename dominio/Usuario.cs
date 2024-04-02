@@ -13,5 +13,14 @@ namespace dominio
         public List<Articulo> Carrito { get; set; }
         public bool Admin { get; set; }
 
+        public decimal CalcularTotal()
+        {
+            decimal TotalAPagar = 0;
+            foreach (var item in Carrito)
+            {
+                TotalAPagar += item.Precio * item.Cantidad;
+            }
+            return TotalAPagar;
+        }
     }
 }
