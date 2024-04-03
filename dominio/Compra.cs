@@ -6,7 +6,7 @@ namespace dominio
     {
         public int Id { get; set; }
         public int IdUsuario { get; set; }
-        public int NroCompra { get; set; }
+        public string NroCompra { get; set; }
         public List<Articulo> Productos { get; set; }
         public decimal Total { get; set; }
 

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
 
 namespace negocio
 {
@@ -12,7 +8,7 @@ namespace negocio
     {
         //Declaramos los atributos en private.
         private SqlConnection conexion;
-        private SqlCommand comando; 
+        private SqlCommand comando;
         private SqlDataReader lector;
 
         // Declaramos las props de acceso
@@ -75,10 +71,15 @@ namespace negocio
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
+        public void clearParams()
+        {
+            comando.ExecuteScalar();
+            comando.Parameters.Clear(); 
+        }
 
         public void cerrarConexion()
         {
-            if(lector != null)
+            if (lector != null)
             {
                 lector.Close();
                 conexion.Close();

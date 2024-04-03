@@ -1,4 +1,5 @@
 ﻿using dominio;
+using negocio;
 using System;
 using System.Collections.Generic;
 
@@ -31,18 +32,39 @@ namespace Vista
         {
             Usuario usuario = (Usuario)Session["usuario"];
             Compra compra = new Compra();
+            ComprasNegocio compras = new ComprasNegocio();
 
             compra.IdUsuario = usuario.Id;
             compra.NroCompra = GenerarIdCompra();
             compra.Productos = usuario.Carrito;
             compra.Total = usuario.CalcularTotal();
 
-            compra.NombreComprador
+            compra.NombreComprador = txtNombreConfirmar.Text;
+            compra.Dni = int.Parse(txtDni.Text);
+            compra.Direccion = txtDireccion.Text;
+            compra.Localidad = txtLocalidad.Text;
+            compra.CodigoPostal = int.Parse(txtCP.Text);
+            compra.MetodoPago = int.Parse(ddlMetodoPago.SelectedItem.Value);
+            Spiner = true;
+
+            try
+            {
+                compras.agregarCompra(compra);
+                Spiner = false;
+                Response.Redirect("CompraRealizada.aspx", false);
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
+
 
             
         }
 
-        private int GenerarIdCompra()
+        private string GenerarIdCompra()
         {
             // Obtener la fecha y hora actual
             DateTime fechaHoraActual = DateTime.Now;
@@ -51,7 +73,7 @@ namespace Vista
             long ticks = fechaHoraActual.Ticks;
 
             // Convertir los ticks a un número entero
-            int id = (int)(ticks & 0x7FFFFFFF); 
+            string id = (ticks & 0x7FFFFFFF).ToString(); 
 
             return id;
         }

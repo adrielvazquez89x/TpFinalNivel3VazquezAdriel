@@ -30,8 +30,8 @@
                             <asp:DropDownList ID="ddlMetodoPago" runat="server" AutoPostBack="true"
                                 CssClass="form-control my-1">
                                 <asp:ListItem> - </asp:ListItem>
-                                <asp:ListItem>Efectivo</asp:ListItem>
-                                <asp:ListItem>Tarjeta</asp:ListItem>
+                                <asp:ListItem Value="1">Efectivo</asp:ListItem>
+                                <asp:ListItem Value="2">Tarjeta</asp:ListItem>
                             </asp:DropDownList>
 
                             <% if (ddlMetodoPago.SelectedItem.Value == "Tarjeta")
@@ -85,15 +85,17 @@
             <div class="d-flex justify-content-end mt-5 ">
                 <asp:Button ID="btnFinalizar" runat="server"
                     CssClass="btnComprar" Text="Realizar compra"
-                    OnClick="btnFinalizar_Click"
-                     />
+                    OnClick="btnFinalizar_Click" />
             </div>
         </div>
-        <%} %>
+        <%}%>
     </div>
+    <%if (Spiner)
+        {%>
     <div class="d-flex justify-content-center">
-        <p>ESPINER</p>
+        <div class="spinner-container">
+            <div class="spinner"></div>
+        </div>
     </div>
-
-
+    <%} %>
 </asp:Content>
