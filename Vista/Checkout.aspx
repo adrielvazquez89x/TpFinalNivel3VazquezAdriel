@@ -27,9 +27,8 @@
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
                         <div class="d-flex flex-column col-8">
-                            <asp:DropDownList ID="ddlMetodoPago" runat="server" AutoPostBack="true"
+                            <asp:DropDownList ID="ddlMetodoPago" ClientIDMode="Static" runat="server" AutoPostBack="true"
                                 CssClass="form-control my-1">
-                                <asp:ListItem> - </asp:ListItem>
                                 <asp:ListItem Value="1">Efectivo</asp:ListItem>
                                 <asp:ListItem Value="2">Tarjeta</asp:ListItem>
                             </asp:DropDownList>

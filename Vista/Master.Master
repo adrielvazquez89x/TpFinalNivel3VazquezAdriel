@@ -30,6 +30,11 @@
                     <li><a href="Favoritos.aspx">Mis Favoritos</a></li>
                     <li><a href="MiPerfil.aspx">Mi Perfil</a></li>
 
+                    <%if (negocio.Seguridad.sesionActiva(Session["usuario"]))
+                        { %>
+                    <li><a href="MisCompras.aspx">Mis compras</a></li>
+                    <%} %>
+
                 </ul>
             </nav>
             <div class="btnContainer">

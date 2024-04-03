@@ -73,7 +73,7 @@ namespace negocio
         }
         public void clearParams()
         {
-            comando.ExecuteScalar();
+            //comando.ExecuteScalar();
             comando.Parameters.Clear(); 
         }
 

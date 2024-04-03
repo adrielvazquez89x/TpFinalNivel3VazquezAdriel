@@ -37,6 +37,7 @@ namespace Vista
             compra.IdUsuario = usuario.Id;
             compra.NroCompra = GenerarIdCompra();
             compra.Productos = usuario.Carrito;
+            compra.Fecha = DateTime.Now;
             compra.Total = usuario.CalcularTotal();
 
             compra.NombreComprador = txtNombreConfirmar.Text;
@@ -52,6 +53,7 @@ namespace Vista
                 compras.agregarCompra(compra);
                 Spiner = false;
                 Response.Redirect("CompraRealizada.aspx", false);
+
             }
             catch (Exception ex)
             {
@@ -59,9 +61,7 @@ namespace Vista
                 Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx", false);
             }
-
-
-            
+           
         }
 
         private string GenerarIdCompra()

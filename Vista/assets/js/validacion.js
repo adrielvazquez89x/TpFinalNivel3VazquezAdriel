@@ -129,6 +129,7 @@ function validarFormulario() {
 
     return true;
 }
+// ********************* VALIDACIONES PARA EL CHECKOUT *********************
 
 const txtNombreConfirmar = document.querySelector('#txtNombreConfirmar');
 const txtDni = document.querySelector('#txtDni');
@@ -136,11 +137,13 @@ const txtDireccion = document.querySelector('#txtDireccion');
 const txtLocalidad = document.querySelector('#txtLocalidad');
 const txtCP = document.querySelector('#txtCP');
 
+
 const spanNombreConfirmar = document.querySelector('#spanNombreConfirmar');
 const spanDni = document.querySelector('#spanDni');
 const spanDireccion = document.querySelector('#spanDireccion');
 const spanLocalidad = document.querySelector('#spanLocalidad');
 const spanCp = document.querySelector('#spanCp');
+
 
 function validacionConfirmar() {
 

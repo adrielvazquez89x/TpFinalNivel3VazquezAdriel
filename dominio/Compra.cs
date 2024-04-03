@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace dominio
 {
@@ -10,6 +11,7 @@ namespace dominio
         public List<Articulo> Productos { get; set; }
         public decimal Total { get; set; }
 
+        public DateTime Fecha { get; set; }
         public string NombreComprador { get; set; }
         public int Dni { get; set; }
         public string Direccion { get; set; }   
