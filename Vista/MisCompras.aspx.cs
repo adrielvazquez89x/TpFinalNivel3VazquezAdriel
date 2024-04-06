@@ -2,9 +2,6 @@
 using negocio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Vista
@@ -13,10 +10,15 @@ namespace Vista
     {
         public Usuario Usuario { get; set; }
         public List<Compra> MisComprasRealizadas { get; set; }
+        public Compra CompraDetallada { get; set; }
+        public bool Spinner { get; set; }
+        public bool VerDetalle { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario = (Usuario)Session["usuario"];
             var compras = new ComprasNegocio();
+            VerDetalle = false;
 
             try
             {
@@ -32,6 +34,22 @@ namespace Vista
                 Response.Redirect("Error.aspx", false);
             }
 
+
+        }
+
+        protected void btnDetalle_Click(object sender, EventArgs e)
+        {
+            //Un get a la base de ddatos con el contenido
+            Spinner = true;
+            var negocio = new ComprasNegocio();
+            string nroCompra = (((LinkButton)sender).CommandArgument);
+            var compra = MisComprasRealizadas.Find(c => c.NroCompra == nroCompra);
+            negocio.ListarDetalle(compra);
+            CompraDetallada = compra;
+           Spinner = false;
+
+
+            VerDetalle = true;
 
         }
     }

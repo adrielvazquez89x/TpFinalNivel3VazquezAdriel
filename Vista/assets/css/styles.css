@@ -134,6 +134,18 @@ header {
             background-color: var(--color3);
         }
 
+.cartCounter {
+    background-color: var(--color6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    border-radius:50%;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+}
+
 .btnCart {
     color: #ff6202;
     cursor: pointer;
@@ -500,4 +512,12 @@ footer {
     to {
         transform: rotate(360deg);
     }
+}
+
+.tooltipImg {
+    width: 140px;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: #fefefe;
 }

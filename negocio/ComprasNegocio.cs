@@ -70,7 +70,7 @@ namespace negocio
                 datos.setParams("@Id", usuario.Id);
                 datos.ejecutarLectura();
 
-                while(datos.Lector.Read())
+                while (datos.Lector.Read())
                 {
                     var aux = new Compra();
 
@@ -81,13 +81,13 @@ namespace negocio
                     aux.Localidad = (string)datos.Lector["localidad"];
                     aux.CodigoPostal = (int)datos.Lector["cp"];
 
-                    listaCompras.Add(aux); 
+                    listaCompras.Add(aux);
                 }
                 return listaCompras;
 
             }
             catch (Exception ex)
-            { 
+            {
 
                 throw ex;
             }
@@ -96,8 +96,38 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
-            
+
         }
 
+        public void ListarDetalle(Compra compra)
+        {
+            var datos = new AccesoDatos();
+            try
+            {
+                compra.Productos = new List<Articulo>();
+                datos.setConsulta("SELECT c.IdArticulo, c.cantidad, c.NroCompra,  a.Nombre, a.IdMarca, m.Descripcion, a.ImagenUrl, a.Precio FROM COMPRA_DETALLE as c INNER JOIN ARTICULOS a ON c.IdArticulo = a.Id INNER JOIN MARCAS m ON a.IdMarca = m.Id WHERE c.NroCompra = @NroCompra");
+                datos.setParams("@NroCompra", compra.NroCompra);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    var aux = new Articulo();
+
+                    aux.Id = (int)datos.Lector["IdArticulo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Fabricante = new Marca();
+                    aux.Fabricante.Nombre = (string)datos.Lector["Descripcion"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.UrlImg = (string)datos.Lector["ImagenUrl"];
+                    aux.Cantidad = (int)datos.Lector["Cantidad"];
+                    compra.Productos.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -17,7 +17,7 @@
                     <p class="articleDescription"><%:ArticuloActual.Descripcion %></p>
                     <p class="articlePrice">$<%: ArticuloActual.Precio %></p>
 
-                    <asp:Button Text="Agregar al carrito" runat="server" ID="btnAgregarCarrito" OnClick="btnAgregarCarrito_Click"/>
+                    <asp:Button Text="Agregar al carrito" runat="server" CssClass="btn btn-primary" ID="btnAgregarCarrito" OnClick="btnAgregarCarrito_Click"/>
 
                     <%
                         if (ArticuloActual.Codigo.Contains("(BAJA)"))
