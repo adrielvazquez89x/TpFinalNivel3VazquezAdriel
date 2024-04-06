@@ -181,7 +181,7 @@ function validacionConfirmar() {
 
     ponerVerdeFormulario(txtLocalidad, spanLocalidad);
 
-    if (spanCp.value == "") {
+    if (txtCP.value == "") {
         ponerRojoFormulario(txtCP, spanCp, "Ingrese un codigo postal");
         return false;
     }

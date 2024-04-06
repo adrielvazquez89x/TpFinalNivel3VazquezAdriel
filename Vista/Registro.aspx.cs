@@ -32,6 +32,7 @@ namespace Vista
 
                 Usuario nuevoUsuario = new Usuario();
                 UsuarioNegocio negocio = new UsuarioNegocio();
+                nuevoUsuario.Carrito = new List<Articulo>();
 
                 nuevoUsuario.Email = txtUserName.Text;
                 nuevoUsuario.Password = txtPassword.Text;
@@ -51,7 +52,6 @@ namespace Vista
 
 
                Session.Add("usuario", nuevoUsuario);
-
                Response.Redirect("MiPerfil.aspx", false);
 
 

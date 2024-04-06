@@ -4,7 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" />
-    <h1 class="text-center mt-5">Confirmar Compra</h1>
+
+    <h1 class="text-center mt-5" id="h1Confirmar">Confirmar Compra</h1>
     <%-- Primera mitad del formulario --%>
     <div class="d-flex gap-5">
         <div class="col-6">
@@ -12,14 +13,19 @@
                 <h3>Completa el formulario para finalizar la compra:</h3>
                 <h3 class="text-danger">Esto es un simulador, no ingreses tus datos reales.</h3>
                 <asp:TextBox ID="txtNombreConfirmar" ClientIDMode="Static" runat="server" placeholder="Nombre" CssClass="form-control my-1"></asp:TextBox>
+                <asp:RequiredFieldValidator ControlToValidate="txtNombreConfirmar" runat="server" />
                 <span id="spanNombreConfirmar"></span>
                 <asp:TextBox ID="txtDni" ClientIDMode="Static" runat="server" placeholder="Dni" CssClass="form-control my-1" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ControlToValidate="txtDni" runat="server" />
                 <span id="spanDni"></span>
                 <asp:TextBox ID="txtDireccion" ClientIDMode="Static" runat="server" placeholder="Direccion" CssClass="form-control my-1"></asp:TextBox>
                 <span id="spanDireccion"></span>
+                <asp:RequiredFieldValidator ControlToValidate="txtDireccion" runat="server" />
                 <asp:TextBox ID="txtLocalidad" ClientIDMode="Static" runat="server" placeholder="Localidad" CssClass="form-control my-1"></asp:TextBox>
+                <asp:RequiredFieldValidator ControlToValidate="txtLocalidad" runat="server" />
                 <span id="spanLocalidad"></span>
                 <asp:TextBox ID="txtCP" ClientIDMode="Static" runat="server" placeholder="Codigo postal" CssClass="form-control my-1" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ControlToValidate="txtCP" runat="server" />
                 <span id="spanCp"></span>
             </div>
             <div>

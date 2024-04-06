@@ -21,15 +21,25 @@ namespace Vista
 
             Carrito = ((Usuario)Session["usuario"]).Carrito;
 
+            if (Carrito.Count == 0)
+                Response.Redirect("Carrito.aspx", false);
+
         }
 
         protected void btnConfirmarCompra_Click(object sender, EventArgs e)
         {
+            if (!IsValid)
+                return;
+
             FormularioAprobado = true;
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
+            if (!IsValid)
+
+                return;
+
             Usuario usuario = (Usuario)Session["usuario"];
             Compra compra = new Compra();
             ComprasNegocio compras = new ComprasNegocio();
