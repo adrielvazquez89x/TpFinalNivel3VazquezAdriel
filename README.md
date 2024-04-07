@@ -40,11 +40,11 @@ Once you have installed the database, you can start your browser and navigate to
 
 ## Links:
 Video:
-https://www.youtube.com/watch?v=7atVpPKrgcw
+* https://www.youtube.com/watch?v=7atVpPKrgcw
 Deployment:
-http://www.csharpcatalog.somee.com/
+* http://www.csharpcatalog.somee.com/
 
 ## Contact
 If you want contact me you can send me a message:
-www.adrielvazquez.com.ar
-www.linkedin.com/in/adriel-alejandro-vazquez
+* www.adrielvazquez.com.ar
+* www.linkedin.com/in/adriel-alejandro-vazquez
