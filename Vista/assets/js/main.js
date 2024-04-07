@@ -27,7 +27,17 @@ window.addEventListener('resize', () => {
     }
 })
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
+    return new bootstrap.Tooltip(tooltipTriggerEl);
 })
+
+//const toastTrigger = document.getElementById('btnAgregarCarrito');
+//const toastLiveExample = document.getElementById('liveToast');
+//if (toastTrigger) {
+//    toastTrigger.addEventListener('click', () => {
+//        const toast = new bootstrap.Toast(toastLiveExample);
+
+//        toast.show();
+//    })
+//}
