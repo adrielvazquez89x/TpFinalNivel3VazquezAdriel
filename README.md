@@ -2,7 +2,7 @@
 
 C# Catalog is an app made for the final lesson of MaxiPrograma's third-level course on .Net/C#. This app serves as an online catalog administrator for managing an e-commerce platform.
 
-## MaxiPrograma's course goal
+## MaxiPrograma's course
 The goal of the final lesson of the course, is the creation of an app with basic functions for the management of a store catalog. Additionally, users can create accounts, browse products, and add items to their favorites section.
 
 ## Implementation of the virtual store
